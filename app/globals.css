@@ -9,3 +9,7 @@
 .text-gap {
     letter-spacing: 0.2em;
 }
+
+::-webkit-scrollbar {
+    width: 1px;
+}
