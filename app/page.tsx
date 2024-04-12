@@ -1,15 +1,8 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Home",
-};
-
+import Hero from "./components/Hero";
 export default function Page() {
   return (
-    <>
-      <h1>Next.js + PWA = AWESOME!</h1>
-      <Link href="/about">About page</Link>
-    </>
+    <main>
+      <Hero />
+    </main>
   );
 }
