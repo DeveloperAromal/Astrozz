@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-skyblack {
+    background-color: #010207;
+}
+
+.text-gap {
+    letter-spacing: 0.2em;
+}
