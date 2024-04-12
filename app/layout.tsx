@@ -34,7 +34,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" dir="ltr">
-      <body className="bg-skyblack text-white overflow-hidden">{children}</body>
+      <body className="bg-skyblack text-white overflow-x-hidden">
+        {children}
+      </body>
     </html>
   );
 }
