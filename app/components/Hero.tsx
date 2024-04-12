@@ -11,6 +11,11 @@ export default function Hero() {
         <div className="flex items-center justify-center">
           <Image src="/images/moon2.jpg" alt="moon" width={600} height={600} />
         </div>
+        <div className="flex items-center justify-center  py-20">
+          <div className="w-8 h-14 bg-slate-800 rounded-full flex items-center justify-center">
+            ↓
+          </div>
+        </div>
       </div>
     </section>
   );
