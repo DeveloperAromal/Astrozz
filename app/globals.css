@@ -13,3 +13,12 @@
 ::-webkit-scrollbar {
     width: 1px;
 }
+
+
+.w-cust {
+    width: 400px;
+}
+
+.h-cust {
+    height: 500px;
+}
