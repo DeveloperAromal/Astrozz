@@ -39,21 +39,21 @@ export default function WantMore() {
         <div>
           <h1 className="text-center text-3xl text-white">Space week</h1>
         </div>
-        <div className="flex gap-10 py-10 flex-wrap items-center justify-center">
+        <div className="flex gap-20 py-10 flex-wrap items-center justify-center">
           {data &&
             data.images.map((image, index) => (
               <div
                 key={index}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-8"
+                className="w-64 h-64 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-8"
               >
                 <Image
                   src={image.src}
                   width={250}
                   height={250}
-                  className="rounded-2xl w-full h-full"
+                  className="rounded-md w-full h-full"
                   alt="week"
                 />
-                <div className="text-center mt-2">
+                <div className="text-center bg-slate-950 rounded-md">
                   <h2 className="max-w-80 text-lg text-white">
                     {image.description}
                   </h2>
