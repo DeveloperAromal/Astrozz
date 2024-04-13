@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Membership() {
   return (
@@ -33,9 +34,11 @@ export default function Membership() {
             </p>
           </div>
           <div className="text-center">
-            <button className="px-8 py-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:bg-purple-700 transition duration-300 ease-in-out">
-              Join Community
-            </button>
+            <Link href="/community">
+              <button className="px-8 py-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:bg-purple-700 transition duration-300 ease-in-out">
+                Join Community
+              </button>
+            </Link>
           </div>
           <div className="box">naln</div>
         </div>
