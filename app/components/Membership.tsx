@@ -40,7 +40,6 @@ export default function Membership() {
               </button>
             </Link>
           </div>
-          <div className="box">naln</div>
         </div>
       </div>
     </section>
