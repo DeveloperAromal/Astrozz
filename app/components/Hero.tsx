@@ -36,7 +36,7 @@ export default function Hero() {
               />
             </div>
             <div>
-              <h1 className="text-4xl sm:text-6xl md:text-6xl font-sm text-center text-gap antialiased">
+              <h1 className="text-4xl animated sm:text-6xl md:text-6xl font-sm text-center text-gap antialiased">
                 Explore
                 <br /> Astronomy
               </h1>
@@ -60,26 +60,3 @@ export default function Hero() {
     </section>
   );
 }
-
-// export default function Hero() {
-//   return (
-//     <section className="flex items-center justify-center h-screen">
-//       <div>
-//         <div className="">
-//           <h1 className="text-4xl sm:text-6xl md:text-6xl z-20 font-sm text-center text-gap antialiased">
-//             Explore
-//             <br /> Astronomy{" "}
-//           </h1>
-//         </div>
-//         <div className="flex items-center justify-center">
-//           <Image
-//             src="/images/moon2.jpg"
-//             alt="asteroid"
-//             width={600}
-//             height={600}
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
