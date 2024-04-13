@@ -1,7 +1,11 @@
+import QuizContainer from "../components/quiz/Quiz-container";
+
 export default function Quiz() {
   return (
     <section>
-      <div></div>
+      <div>
+        <QuizContainer />
+      </div>
     </section>
   );
 }
