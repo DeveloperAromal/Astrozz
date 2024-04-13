@@ -125,7 +125,6 @@ const ComplaintForm: FC = () => {
                     type="text"
                     placeholder="Addmission no"
                     maxLength={7}
-                    minLength={7}
                     className="contact-inp w-32 h-10 rounded-md border border-gray-300 bg-white py-3 pl-2 pr-2 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
                     {...register("addmission", { required: true })}
                   />
