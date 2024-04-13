@@ -11,14 +11,14 @@ import Navbar from "./components/Navbar";
 export default function Page() {
   return (
     <main>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
-      <Membership />
+      {/* <Membership />
       <Hourners />
       <Incharge />
       <Achivements />
       <WantMore />
-      <Footer />
+      <Footer /> */}
     </main>
   );
 }

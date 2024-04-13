@@ -23,27 +23,25 @@
     height: 500px;
 }
 
+
+/* .asteroid-animation {
+    animation: asteroidMovement 2s ease-in-out infinite;
+    position: relative;
+    top: -80px;
+} */
+
+.animated {
+    animation: asteroidMovement 2s ease-in;
+}
+
 @keyframes asteroidMovement {
     0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
+        transform: translateY(80px);
+        opacity: 0;
     }
 
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
-}
-
-.asteroid-animation {
-    animation: asteroidMovement 2s ease-in-out infinite;
-    position: relative;
-    top: -80px;
-}
-
-.animated {
-    position: relative;
-    top: -80px;
 }
