@@ -82,8 +82,8 @@ export default function Community() {
                 //   {...register("classNumber", { required: true })}
               >
                 <option value="Select your class">Select syllabus</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
+                <option value="1">cbse</option>
+                <option value="2">igcsc</option>
               </select>
               <input
                 type="tel"
