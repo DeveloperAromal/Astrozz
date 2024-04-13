@@ -1,4 +1,4 @@
-import CommunityContainer from "../components/community/Community";
+import CommunityContainer from "../components/community/CommunityForm";
 
 export default function Community() {
   return (
