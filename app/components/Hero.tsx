@@ -61,31 +61,50 @@ import Image from "next/image";
 //   );
 // }
 
+// export default function Hero() {
+//   return (
+//     <section>
+//       <div>
+//         <div
+//           style={{
+//             backgroundImage: "url('/assets/cosmos1.jpg')",
+//             backgroundSize: "cover",
+//             backgroundRepeat: "no-repeat",
+//             backgroundPosition: "center",
+//             minHeight: "100vh",
+//             display: "flex",
+//             justifyContent: "center",
+//             alignItems: "center",
+//           }}
+//           className="background"
+//         >
+//           <div>
+//             <h1 className="text-4xl animated sm:text-6xl md:text-6xl font-sm text-center text-gap antialiased">
+//               Explore
+//               <br /> Astronomy
+//             </h1>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 export default function Hero() {
   return (
-    <section>
-      <div>
-        <div
-          style={{
-            backgroundImage: "url('/assets/cosmos1.jpg')",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            minHeight: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          className="background"
-        >
-          <div>
-            <h1 className="text-4xl animated sm:text-6xl md:text-6xl font-sm text-center text-gap antialiased">
-              Explore
-              <br /> Astronomy
-            </h1>
-          </div>
-        </div>
-      </div>
+    <section className="relative flex items-center justify-center w-screen h-screen">
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 object-cover w-full h-full"
+      >
+        <source src="/videos/blackhole.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <h1 className="text-4xl animated sm:text-6xl md:text-6xl font-sm text-center text-gap tracking-wide z-20">
+        Explore <br /> Astronomy
+      </h1>
     </section>
   );
 }
