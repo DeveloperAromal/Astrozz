@@ -30,13 +30,13 @@ export default function Hero() {
               <Image
                 src="/images/asteroid.png"
                 alt="asteroid"
-                width={100}
-                height={100}
+                width={150}
+                height={150}
                 className="asteroid-animation"
               />
             </div>
             <div>
-              <h1 className="text-4xl sm:text-6xl md:text-6xl z-20 font-sm text-center text-gap antialiased">
+              <h1 className="text-4xl sm:text-6xl md:text-6xl font-sm text-center text-gap antialiased">
                 Explore
                 <br /> Astronomy
               </h1>

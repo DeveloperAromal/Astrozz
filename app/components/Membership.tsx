@@ -37,6 +37,7 @@ export default function Membership() {
               Join Community
             </button>
           </div>
+          <div className="box">naln</div>
         </div>
       </div>
     </section>
