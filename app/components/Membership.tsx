@@ -35,7 +35,7 @@ export default function Membership() {
           </div>
           <div className="text-center">
             <Link href="/community">
-              <button className="px-8 py-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:bg-purple-700 transition duration-300 ease-in-out">
+              <button className="px-8 py-4 bg-sky-600 text-white rounded-md hover:bg-sky-800 focus:outline-none focus:bg-purple-700 transition duration-300 ease-in-out">
                 Join Community
               </button>
             </Link>
