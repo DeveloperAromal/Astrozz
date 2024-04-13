@@ -22,3 +22,21 @@
 .h-cust {
     height: 500px;
 }
+
+@keyframes asteroidMovement {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.asteroid-animation {
+    animation: asteroidMovement 2s ease-in-out infinite;
+}

@@ -26,6 +26,15 @@ export default function Hero() {
           className="background"
         >
           <div>
+            <div className="flex items-end justify-end">
+              <Image
+                src="/images/asteroid.png"
+                alt="asteroid"
+                width={100}
+                height={100}
+                className="asteroid-animation"
+              />
+            </div>
             <div>
               <h1 className="text-4xl sm:text-6xl md:text-6xl z-20 font-sm text-center text-gap antialiased">
                 Explore
@@ -51,3 +60,26 @@ export default function Hero() {
     </section>
   );
 }
+
+// export default function Hero() {
+//   return (
+//     <section className="flex items-center justify-center h-screen">
+//       <div>
+//         <div className="">
+//           <h1 className="text-4xl sm:text-6xl md:text-6xl z-20 font-sm text-center text-gap antialiased">
+//             Explore
+//             <br /> Astronomy{" "}
+//           </h1>
+//         </div>
+//         <div className="flex items-center justify-center">
+//           <Image
+//             src="/images/moon2.jpg"
+//             alt="asteroid"
+//             width={600}
+//             height={600}
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
