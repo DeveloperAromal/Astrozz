@@ -106,10 +106,10 @@ export default function LoginForm() {
 
   const handleQuizCompletion = () => {
     const formData: FormData = {
-      name,
-      email,
-      classSelected,
-      divSelected: divSelected || "",
+      name: localStorage.getItem("name") || "",
+      email: localStorage.getItem("email") || "",
+      classSelected: parseInt(localStorage.getItem("classSelected") || "0"),
+      divSelected: localStorage.getItem("divSelected") || "",
       score,
     };
     sendEmail(formData);
@@ -123,6 +123,9 @@ export default function LoginForm() {
     let timer: NodeJS.Timeout;
     if (!quizCompleted && loggedIn) {
       timer = setTimeout(() => {
+        // Trigger quiz completion
+        handleQuizCompletion();
+        // Update state values to ensure correct values are sent in the email
         setQuizCompleted(true);
       }, timerSeconds * 1000);
     }
