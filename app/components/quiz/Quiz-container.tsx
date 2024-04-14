@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -31,6 +30,7 @@ export default function LoginForm() {
   const [score, setScore] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [timerSeconds, setTimerSeconds] = useState(120); // 5 minutes
   const supabase = createClientComponentClient();
 
   useEffect(() => {
@@ -74,6 +74,15 @@ export default function LoginForm() {
 
     if (data?.user) {
       toast.success("Logged in successfully");
+      const quizCompleted = localStorage.getItem("quizCompleted");
+      if (quizCompleted) {
+        toast.error("You have already completed the quiz.");
+        return;
+      }
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      localStorage.setItem("classSelected", classSelected.toString());
+      localStorage.setItem("divSelected", divSelected);
       setLoggedIn(true);
     } else if (error) {
       toast.error("Email or Password does not match");
@@ -92,36 +101,49 @@ export default function LoginForm() {
   };
 
   const handleQuizCompletion = () => {
-    if (currentQuestion >= questions.length) {
-      const formData: FormData = {
-        name,
-        email,
-        classSelected,
-        divSelected: divSelected || "",
-        score,
-      };
-      sendEmail(formData);
+    const formData: FormData = {
+      name,
+      email,
+      classSelected,
+      divSelected: divSelected || "",
+      score,
+    };
+    sendEmail(formData);
 
-      setQuizCompleted(true);
-    }
+    setQuizCompleted(true);
   };
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (!quizCompleted && loggedIn) {
       timer = setTimeout(() => {
-        handleQuizCompletion();
-      }, 300000); // 5 minutes timer
+        setQuizCompleted(true);
+      }, timerSeconds * 1000);
     }
 
     return () => clearTimeout(timer);
-  }, [loggedIn, quizCompleted]);
+  }, [loggedIn, quizCompleted, timerSeconds]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimerSeconds((prevSeconds) => {
+        if (prevSeconds > 0) {
+          return prevSeconds - 1;
+        } else {
+          return 0;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   if (quizCompleted) {
+    handleQuizCompletion(); // Call handleQuizCompletion when quizCompleted is true
     return (
-      <section className="flex items-center justify-center">
+      <section className="flex items-center justify-center h-screen">
         <div>
-          <p>All questions answered!</p>
+          <p className="text-2xl">All questions answered🔥</p>
         </div>
       </section>
     );
@@ -146,6 +168,12 @@ export default function LoginForm() {
               <h1 className="text-4xl font-bold text-gray-800 mb-6">
                 Astronomy Quiz
               </h1>
+              <p className="text-lg text-gray-700 mb-6 px-6">
+                Time Remaining: {Math.floor(timerSeconds / 60)}:
+                {timerSeconds % 60 < 10
+                  ? "0" + (timerSeconds % 60)
+                  : timerSeconds % 60}
+              </p>
               {currentQuestionData && (
                 <>
                   <p className="text-lg text-gray-700 mb-6 px-6">
@@ -162,11 +190,11 @@ export default function LoginForm() {
                       </button>
                     ))}
                   </div>
+                  <p className="text-lg text-center text-gray-700 mb-6 mt-6 px-6">
+                    Question {currentQuestion + 1}/{questions.length}
+                  </p>
                 </>
               )}
-              <p className="text-lg text-gray-700 mt-6">
-                Score: {score} / {questions.length}
-              </p>
             </div>
           </section>
         );
