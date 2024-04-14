@@ -94,7 +94,16 @@ export default function CommunityJoin() {
       >
         <section className="flex gap-10 flex-wrap items-center justify-center py-20">
           <div>
-            <div className="w-96 h-96 hidden lg:block md:block sm:block">
+            <div className="lg:hidden md:hidden block">
+              <Image
+                src="/assets/ufo.png"
+                alt="telescope"
+                width={120}
+                height={120}
+                className="ufo-animation"
+              />
+            </div>
+            <div className="w-64 h-64 lg:w-96 lg:h-96 md:w-80 md:h-80">
               <Image
                 src="/assets/austrounat.png"
                 alt="telescope"
@@ -105,7 +114,7 @@ export default function CommunityJoin() {
             </div>
           </div>
           <div>
-            <div>
+            <div className="lg:block md:block hidden">
               <Image
                 src="/assets/ufo.png"
                 alt="telescope"
