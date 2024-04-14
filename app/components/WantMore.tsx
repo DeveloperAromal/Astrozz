@@ -44,7 +44,7 @@ export default function WantMore() {
             data.images.map((image, index) => (
               <div
                 key={index}
-                className="w-64 h-64 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-8"
+                className="w-40 h-40 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-8"
               >
                 <Image
                   src={image.src}
@@ -53,8 +53,8 @@ export default function WantMore() {
                   className="rounded-md w-full h-full"
                   alt="week"
                 />
-                <div className="text-center bg-slate-950 rounded-md">
-                  <h2 className="max-w-80 text-lg text-white">
+                <div className="text-center rounded-md">
+                  <h2 className="max-w-84 text-md lg:text-sm md:text-lg sm:text-lg text-white">
                     {image.description}
                   </h2>
                 </div>

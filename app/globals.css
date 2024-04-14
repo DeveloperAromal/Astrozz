@@ -63,3 +63,93 @@
 .ufo-animation {
     animation: ufoMovement 2s ease-in-out infinite;
 }
+
+.animation1 {
+    animation: movement1 2s ease-in-out infinite;
+}
+
+.animation2 {
+    animation: movement2 3s ease-in-out infinite;
+}
+
+.animation3 {
+    animation: movement3 1.5s ease-in-out infinite;
+}
+
+.animation4 {
+    animation: movement4 2.5s ease-in-out infinite;
+}
+
+.animation5 {
+    animation: movement5 2.2s ease-in-out infinite;
+}
+
+@keyframes movement1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes movement2 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes movement3 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes movement4 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes movement5 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-22px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

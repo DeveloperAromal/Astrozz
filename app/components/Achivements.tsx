@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Achivements() {
   return (
@@ -6,6 +7,15 @@ export default function Achivements() {
       <div>
         <div>
           <h1 className="text-center text-3xl pb-10">Our Achievments</h1>
+        </div>
+        <div>
+          <Image
+            src="/assets/meteor_shower.png"
+            alt="telescope"
+            width={200}
+            height={200}
+            className="absolute lg:block hidden"
+          />
         </div>
         <div className="lg:block md:block sm:block hidden">
           <div className="flex items-center justify-center gap-10 flex-wrap">
@@ -55,7 +65,7 @@ export default function Achivements() {
           </div>
         </div>
         <div className="lg:hidden md:hidden sm:hidden block">
-          <div className="flex items-center flex-wrap  justify-center">
+          <div className="flex items-center flex-wrap justify-center">
             <div className="flex gap-4 mb-4">
               <div className="w-36 h-36">
                 <Image
@@ -100,9 +110,11 @@ export default function Achivements() {
         </div>
         <div className="lg:hidden md:hidden sm:hidden block py-10">
           <div className="flex items-center justify-center">
-            <button className="bg-sky-600 px-10 py-4 rounded-md">
-              See more
-            </button>
+            <Link href="/gallery">
+              <button className="bg-sky-600 px-10 py-4 rounded-md">
+                See more
+              </button>
+            </Link>
           </div>
         </div>
       </div>

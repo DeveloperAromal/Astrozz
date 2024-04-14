@@ -29,6 +29,15 @@ export default function Membership() {
           </div>
           <div>
             <div>
+              <div>
+                <Image
+                  src="/assets/commet.png"
+                  alt="telescope"
+                  width={120}
+                  height={120}
+                  className="ufo-animation absolute"
+                />
+              </div>
               <h1 className="text-center text-3xl font-bold text-sky-600">
                 Department
               </h1>
@@ -59,6 +68,15 @@ export default function Membership() {
                 cupiditate obcaecati perferendis corporis ipsam ducimus? Quidem
               </p>
             </div>
+          </div>
+          <div>
+            <Image
+              src="/assets/asteroid.png"
+              alt="telescope"
+              width={120}
+              height={120}
+              className="ufo-animation absolute"
+            />
           </div>
         </section>
       </div>
