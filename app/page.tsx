@@ -1,12 +1,12 @@
-import Hero from "./components/Hero";
-import Achivements from "./components/Achivements";
-import WantMore from "./components/WantMore";
-import Membership from "./components/Membership";
-import Hourners from "./components/Hourners";
-import Incharge from "./components/Incharge";
-import Footer from "./components/Footer";
+import Hero from "./components/screens/Hero";
+import Achivements from "./components/screens/Achivements";
+import WantMore from "./components/screens/WantMore";
+import Membership from "./components/screens/Membership";
+import Hourners from "./components/screens/Hourners";
+import Incharge from "./components/screens/Incharge";
+import Footer from "./components/screens/Footer";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/screens/Navbar";
 
 export default function Page() {
   return (

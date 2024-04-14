@@ -1,7 +1,7 @@
 // "use client";
 // import React, { useState } from "react";
 import Image from "next/image";
-import AudioPlayer from "./audio/Bgm";
+import AudioPlayer from "../audio/Bgm";
 
 // export default function Hero() {
 //   const [isChatOpen, setIsChatOpen] = useState(false);
