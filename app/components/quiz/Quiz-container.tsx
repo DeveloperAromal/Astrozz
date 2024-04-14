@@ -23,7 +23,7 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [classSelected, setClassSelected] = useState<number>(0);
-  const [divSelected, setDivSelected] = useState<string>(""); // changed to string type
+  const [divSelected, setDivSelected] = useState<string>("");
   const [password, setPassword] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -32,11 +32,37 @@ export default function LoginForm() {
   const supabase = createClientComponentClient();
 
   useEffect(() => {
-    fetch("https://dpsapi-two.vercel.app/root/quiz.json")
+    let apiUrl = "";
+    switch (classSelected) {
+      case 1:
+      case 2:
+        apiUrl = "https://dpsapi-two.vercel.app/root/quiz1.json";
+        break;
+      case 3:
+      case 4:
+      case 5:
+        apiUrl = "https://dpsapi-two.vercel.app/root/quiz2.json";
+        break;
+      case 6:
+      case 7:
+      case 8:
+        apiUrl = "https://dpsapi-two.vercel.app/root/quiz3.json";
+        break;
+      case 9:
+      case 10:
+        apiUrl = "https://dpsapi-two.vercel.app/root/quiz4.json";
+        break;
+      case 11:
+      case 12:
+        apiUrl = "https://dpsapi-two.vercel.app/root/quiz5.json";
+        break;
+    }
+
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setQuestions(data.questions))
       .catch((error) => console.error("Error fetching questions:", error));
-  }, []);
+  }, [classSelected]);
 
   const handleLogin = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -45,11 +71,19 @@ export default function LoginForm() {
     });
 
     if (data?.user) {
+      // Check if the user has already completed the quiz
+      const quizCompleted = localStorage.getItem("quizCompleted");
+      if (quizCompleted) {
+        toast.error("You have already completed the quiz.");
+        return;
+      }
+
+      // If the user hasn't completed the quiz, proceed with login
       toast.success("Logged in successfully");
       localStorage.setItem("email", email);
       localStorage.setItem("name", name);
       localStorage.setItem("classSelected", classSelected.toString());
-      localStorage.setItem("divSelected", divSelected); // changed to string type
+      localStorage.setItem("divSelected", divSelected);
       setLoggedIn(true);
     } else if (error) {
       toast.error("Email or Password does not match");
@@ -77,6 +111,9 @@ export default function LoginForm() {
         score,
       };
       sendEmail(formData);
+
+      // Set the quiz completion flag in local storage
+      localStorage.setItem("quizCompleted", "true");
     }
   };
 
