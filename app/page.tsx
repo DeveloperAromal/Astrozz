@@ -13,12 +13,12 @@ export default function Page() {
     <main>
       {/* <Navbar /> */}
       <Hero />
-      {/* <Membership />
+      <Membership />
       <Hourners />
-      <Incharge />
-      <Achivements />
-      <WantMore />
-      <Footer /> */}
+      {/* <Incharge /> */}
+      {/* <Achivements /> */}
+      {/* <WantMore /> */}
+      {/* <Footer /> */}
     </main>
   );
 }
