@@ -71,15 +71,12 @@ export default function LoginForm() {
     });
 
     if (data?.user) {
-      // Check if the user has already completed the quiz
+      toast.success("Logged in successfully");
       const quizCompleted = localStorage.getItem("quizCompleted");
       if (quizCompleted) {
         toast.error("You have already completed the quiz.");
         return;
       }
-
-      // If the user hasn't completed the quiz, proceed with login
-      toast.success("Logged in successfully");
       localStorage.setItem("email", email);
       localStorage.setItem("name", name);
       localStorage.setItem("classSelected", classSelected.toString());
@@ -112,7 +109,6 @@ export default function LoginForm() {
       };
       sendEmail(formData);
 
-      // Set the quiz completion flag in local storage
       localStorage.setItem("quizCompleted", "true");
     }
   };
@@ -122,7 +118,7 @@ export default function LoginForm() {
       if (currentQuestion >= questions.length) {
         handleQuizCompletion();
         return (
-          <section>
+          <section className="flex items-center justify-center">
             <div>
               <p>All questions answered!</p>
             </div>
@@ -175,18 +171,14 @@ export default function LoginForm() {
   return (
     <section>
       <div>
-        <div className="w-80 h-96 bg-slate-600 rounded-2xl flex items-center justify-center">
+        <div className="flex items-center justify-center h-screen">
           <div>
             <div>
-              <h1 className="text-center font-bold text-3xl pt-4">
-                Welcome back!
+              <h1 className="text-center text-sky-600 font-bold text-3xl py-8">
+                Login to start
               </h1>
             </div>
             <div className="pb-2">
-              <label htmlFor="name" className="py-1">
-                Name
-              </label>
-              <br />
               <input
                 type="text"
                 id="name"
@@ -200,7 +192,7 @@ export default function LoginForm() {
             <div className="pb-4 flex gap-4">
               <select
                 id="class"
-                className="w-56 h-10 text-black rounded-md complaint-select pl-2 pr-2"
+                className="w-40 h-10 text-black rounded-md complaint-select pl-2 pr-2"
                 value={classSelected}
                 onChange={(e) => setClassSelected(parseInt(e.target.value))}
               >
@@ -226,10 +218,6 @@ export default function LoginForm() {
               </select>
             </div>
             <div className="pb-2">
-              <label htmlFor="email" className="py-1">
-                Email
-              </label>
-              <br />
               <input
                 type="email"
                 name="email"
@@ -242,10 +230,6 @@ export default function LoginForm() {
               />
             </div>
             <div className="pb-2">
-              <label htmlFor="password" className="py-1">
-                Password
-              </label>
-              <br />
               <input
                 type="password"
                 name="password"
@@ -259,19 +243,11 @@ export default function LoginForm() {
             </div>
             <div className="flex items-center justify-center">
               <button
-                className="px-10 py-2 bg-orange rounded-2xl"
+                className="px-10 bg-sky-600 py-2 rounded-2xl"
                 onClick={handleLogin}
               >
                 Login
               </button>
-            </div>
-            <div className="flex items-center justify-center">
-              <p>
-                Don't have an account?{" "}
-                <Link href="/auth/signup">
-                  <span className="text-blue-500">SignUp</span>
-                </Link>
-              </p>
             </div>
           </div>
         </div>
