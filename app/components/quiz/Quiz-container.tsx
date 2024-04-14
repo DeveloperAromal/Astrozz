@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -137,17 +138,6 @@ export default function LoginForm() {
 
     return () => clearInterval(interval);
   }, []);
-
-  if (quizCompleted) {
-    handleQuizCompletion(); // Call handleQuizCompletion when quizCompleted is true
-    return (
-      <section className="flex items-center justify-center h-screen">
-        <div>
-          <p className="text-2xl">All questions answered🔥</p>
-        </div>
-      </section>
-    );
-  }
 
   if (loggedIn) {
     if (questions.length > 0) {
