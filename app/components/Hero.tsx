@@ -1,6 +1,7 @@
 // "use client";
 // import React, { useState } from "react";
 import Image from "next/image";
+import AudioPlayer from "./audio/Bgm";
 
 // export default function Hero() {
 //   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -102,6 +103,9 @@ export default function Hero() {
         <source src="/videos/blackhole.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div>
+        <AudioPlayer src="/assets/black_hole_sound_effect.mp3" />
+      </div>
       <h1 className="text-4xl animated sm:text-6xl md:text-6xl font-sm text-center text-gap tracking-wide z-20">
         Explore <br /> Astronomy
       </h1>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function () {
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div>
         <div>
           <h1 className="text-center pb-20 text-3xl font-bold">Our Hourners</h1>

@@ -94,9 +94,9 @@ export default function CommunityJoin() {
       >
         <section className="flex gap-10 flex-wrap items-center justify-center py-20">
           <div>
-            <div className="w-80 h-80 rounded-full">
+            <div className="w-96 h-96">
               <Image
-                src="/assets/telescope.jpg"
+                src="/assets/austrounat.png"
                 alt="telescope"
                 width={400}
                 height={400}
@@ -129,7 +129,7 @@ export default function CommunityJoin() {
                 veritatis repellat itaque cupiditate obcaecati perferendis
                 corporis ipsam ducimus? Quidem
               </p>
-              <div className="text-center">
+              <div className="text-center pt-8">
                 <Link href="/community">
                   <button className="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-800 focus:outline-none focus:bg-purple-700 transition duration-300 ease-in-out">
                     Join Community
