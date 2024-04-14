@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { sendEmail } from "../../../utils/send-msg";
@@ -29,6 +30,7 @@ export default function LoginForm() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [quizCompleted, setQuizCompleted] = useState(false);
   const supabase = createClientComponentClient();
 
   useEffect(() => {
@@ -72,15 +74,6 @@ export default function LoginForm() {
 
     if (data?.user) {
       toast.success("Logged in successfully");
-      const quizCompleted = localStorage.getItem("quizCompleted");
-      if (quizCompleted) {
-        toast.error("You have already completed the quiz.");
-        return;
-      }
-      localStorage.setItem("email", email);
-      localStorage.setItem("name", name);
-      localStorage.setItem("classSelected", classSelected.toString());
-      localStorage.setItem("divSelected", divSelected);
       setLoggedIn(true);
     } else if (error) {
       toast.error("Email or Password does not match");
@@ -109,9 +102,30 @@ export default function LoginForm() {
       };
       sendEmail(formData);
 
-      localStorage.setItem("quizCompleted", "true");
+      setQuizCompleted(true);
     }
   };
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (!quizCompleted && loggedIn) {
+      timer = setTimeout(() => {
+        handleQuizCompletion();
+      }, 300000); // 5 minutes timer
+    }
+
+    return () => clearTimeout(timer);
+  }, [loggedIn, quizCompleted]);
+
+  if (quizCompleted) {
+    return (
+      <section className="flex items-center justify-center">
+        <div>
+          <p>All questions answered!</p>
+        </div>
+      </section>
+    );
+  }
 
   if (loggedIn) {
     if (questions.length > 0) {
