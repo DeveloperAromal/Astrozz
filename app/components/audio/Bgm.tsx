@@ -35,14 +35,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
         className="absolute top-0 right-0 z-40 pr-2 pt-2 flex items-end justify-end"
       >
         {isPlaying ? (
-          <Image src="/icons/mute.png" alt="Mute" width={30} height={30} />
+          <Image src="/icons/speaker.png" alt="Mute" width={30} height={30} />
         ) : (
-          <Image
-            src="/icons/speaker.png"
-            alt="Sound On"
-            width={30}
-            height={30}
-          />
+          <Image src="/icons/mute.png" alt="Sound On" width={30} height={30} />
         )}
       </button>
     </div>
