@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { sendEmail } from "../../../utils/send-msg";
 import Link from "next/link";
@@ -33,6 +34,8 @@ export default function LoginForm() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(120); // 5 minutes
   const supabase = createClientComponentClient();
+
+  const router = useRouter();
 
   useEffect(() => {
     let apiUrl = "";
@@ -112,6 +115,8 @@ export default function LoginForm() {
     sendEmail(formData);
 
     setQuizCompleted(true);
+
+    router.push("/");
   };
 
   useEffect(() => {
@@ -131,6 +136,9 @@ export default function LoginForm() {
         if (prevSeconds > 0) {
           return prevSeconds - 1;
         } else {
+          // Timer reached zero, trigger quiz completion
+          handleQuizCompletion();
+          clearInterval(interval); // Stop the timer interval
           return 0;
         }
       });
