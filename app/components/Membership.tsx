@@ -82,7 +82,7 @@ export default function CommunityJoin() {
     <section>
       <div
         style={{
-          backgroundImage: "url('/assets/blackholebg.png')",
+          backgroundImage: "url('/assets/blackholebg1.png')",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -94,7 +94,7 @@ export default function CommunityJoin() {
       >
         <section className="flex gap-10 flex-wrap items-center justify-center py-20">
           <div>
-            <div className="w-96 h-96">
+            <div className="w-96 h-96 hidden lg:block md:block sm:block">
               <Image
                 src="/assets/austrounat.png"
                 alt="telescope"
