@@ -16,7 +16,7 @@ export default function Page() {
       <Membership />
       <Hourners />
       <Incharge />
-      {/* <Achivements /> */}
+      <Achivements />
       {/* <WantMore /> */}
       {/* <Footer /> */}
     </main>

@@ -115,7 +115,7 @@ export default function CommunityJoin() {
               />
             </div>
             <div>
-              <h1 className="text-center text-3xl text-bold">
+              <h1 className="text-center text-sky-600 text-3xl">
                 Join our community
               </h1>
               <p className="text-justify px-4 max-w-screen-sm">
