@@ -1,5 +1,3 @@
-"use client";
-"use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -31,7 +29,6 @@ export default function LoginForm() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [quizCompleted, setQuizCompleted] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(120); // 5 minutes
   const supabase = createClientComponentClient();
 
@@ -78,11 +75,6 @@ export default function LoginForm() {
 
     if (data?.user) {
       toast.success("Logged in successfully");
-      const quizCompleted = localStorage.getItem("quizCompleted");
-      if (quizCompleted) {
-        toast.error("You have already completed the quiz.");
-        return;
-      }
       localStorage.setItem("email", email);
       localStorage.setItem("name", name);
       localStorage.setItem("classSelected", classSelected.toString());
@@ -114,22 +106,20 @@ export default function LoginForm() {
     };
     sendEmail(formData);
 
-    setQuizCompleted(true);
-
     router.push("/");
   };
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (!quizCompleted && loggedIn) {
+    if (loggedIn) {
       timer = setTimeout(() => {
         // Trigger quiz completion
-        setQuizCompleted(true);
+        handleQuizCompletion();
       }, timerSeconds * 1000);
     }
 
     return () => clearTimeout(timer);
-  }, [loggedIn, quizCompleted, timerSeconds]);
+  }, [loggedIn, timerSeconds]);
 
   useEffect(() => {
     const interval = setInterval(() => {
