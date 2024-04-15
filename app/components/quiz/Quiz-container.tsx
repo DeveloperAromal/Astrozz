@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -30,6 +31,8 @@ export default function LoginForm() {
   const [score, setScore] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(120); // 5 minutes
+  const [quizCompleted, setQuizCompleted] = useState(false);
+  const [emailSent, setEmailSent] = useState(false); // Added emailSent state
   const supabase = createClientComponentClient();
 
   const router = useRouter();
@@ -97,29 +100,21 @@ export default function LoginForm() {
   };
 
   const handleQuizCompletion = () => {
-    const formData: FormData = {
-      name: localStorage.getItem("name") || "",
-      email: localStorage.getItem("email") || "",
-      classSelected: parseInt(localStorage.getItem("classSelected") || "0"),
-      divSelected: localStorage.getItem("divSelected") || "",
-      score,
-    };
-    sendEmail(formData);
-
-    router.push("/");
-  };
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (loggedIn) {
-      timer = setTimeout(() => {
-        // Trigger quiz completion
-        handleQuizCompletion();
-      }, timerSeconds * 1000);
+    if (!emailSent) {
+      // Check if email has already been sent
+      const formData: FormData = {
+        name: localStorage.getItem("name") || "",
+        email: localStorage.getItem("email") || "",
+        classSelected: parseInt(localStorage.getItem("classSelected") || "0"),
+        divSelected: localStorage.getItem("divSelected") || "",
+        score,
+      };
+      sendEmail(formData);
+      setEmailSent(true); // Set emailSent to true after sending email
     }
 
-    return () => clearTimeout(timer);
-  }, [loggedIn, timerSeconds]);
+    setQuizCompleted(true);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -127,8 +122,7 @@ export default function LoginForm() {
         if (prevSeconds > 0) {
           return prevSeconds - 1;
         } else {
-          handleQuizCompletion();
-          clearInterval(interval);
+          clearInterval(interval); // Clear the interval when the timer reaches 0
           return 0;
         }
       });
@@ -136,6 +130,20 @@ export default function LoginForm() {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (timerSeconds === 0 && !quizCompleted) {
+      // If the timer reaches 0 and the quiz is not completed, trigger quiz completion
+      handleQuizCompletion();
+    }
+  }, [timerSeconds, quizCompleted]);
+
+  // Redirect to home when quiz completes
+  useEffect(() => {
+    if (quizCompleted && !emailSent) {
+      router.push("/"); // Redirect to home only after the email is sent
+    }
+  }, [quizCompleted, emailSent]);
 
   if (loggedIn) {
     if (questions.length > 0) {
