@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const APP_NAME = "next-pwa example";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" dir="ltr">
       <body className="bg-neutral-950 text-white overflow-x-hidden">
         {children}
+        <Analytics />
       </body>
     </html>
   );

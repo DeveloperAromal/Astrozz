@@ -34,10 +34,12 @@ export default function SignUpForm() {
     <section>
       <div>
         <div>
-          <div className="w-80 h-96 bg-slate-600 rounded-2xl flex items-center justify-center">
+          <div className="w-80 h-96 bg-slate-600 rounded-md flex items-center justify-center">
             <div>
               <div>
-                <h1 className="text-center font-bold text-3xl pt-4">Sign Up</h1>
+                <h1 className="text-center font-bold text-3xl pt-4">
+                  Register
+                </h1>
               </div>
               <div className="pb-2">
                 <label htmlFor="email" className="py-1">
@@ -51,7 +53,7 @@ export default function SignUpForm() {
                   value={name}
                   required
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter your Email"
+                  placeholder="Enter your Name"
                   className="text-black px-3 w-64 xl:w-64 h-10 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600"
                 />
               </div>
@@ -90,7 +92,7 @@ export default function SignUpForm() {
               </div>
               <div className="flex items-center justify-center">
                 <button
-                  className="px-10 py-2 bg-orange rounded-2xl"
+                  className="px-10 py-2 bg-sky-600 rounded-xl"
                   onClick={handleSignUp}
                 >
                   SignUp

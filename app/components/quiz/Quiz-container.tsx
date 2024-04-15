@@ -124,8 +124,6 @@ export default function LoginForm() {
     if (!quizCompleted && loggedIn) {
       timer = setTimeout(() => {
         // Trigger quiz completion
-        handleQuizCompletion();
-        // Update state values to ensure correct values are sent in the email
         setQuizCompleted(true);
       }, timerSeconds * 1000);
     }
@@ -139,9 +137,8 @@ export default function LoginForm() {
         if (prevSeconds > 0) {
           return prevSeconds - 1;
         } else {
-          // Timer reached zero, trigger quiz completion
           handleQuizCompletion();
-          clearInterval(interval); // Stop the timer interval
+          clearInterval(interval);
           return 0;
         }
       });

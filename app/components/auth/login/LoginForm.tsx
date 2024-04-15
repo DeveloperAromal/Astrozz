@@ -47,11 +47,11 @@ export default function LoginForm() {
   return (
     <section>
       <div>
-        <div className="w-80 h-96 bg-slate-600 rounded-2xl flex items-center justify-center">
+        <div className="w-80 h-96 bg-slate-600 rounded-md flex items-center justify-center">
           <div>
             <div>
               <h1 className="text-center font-bold text-3xl pt-4">
-                Welcome back!
+                Welcome back
               </h1>
             </div>
             <div className="pb-2">
@@ -88,7 +88,7 @@ export default function LoginForm() {
             </div>
             <div className="flex items-center justify-center">
               <button
-                className="px-10 py-2 bg-orange rounded-2xl"
+                className="px-10 py-2 bg-sky-600 rounded-xl"
                 onClick={handleLogin}
               >
                 Login
@@ -98,7 +98,7 @@ export default function LoginForm() {
               <p>
                 Don't have an account?{" "}
                 <Link href="/auth/signup">
-                  <span className="text-blue-500">SignUp</span>
+                  <span className="text-blue-500">Register</span>
                 </Link>
               </p>
             </div>
